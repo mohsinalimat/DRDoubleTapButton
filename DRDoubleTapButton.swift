@@ -8,7 +8,8 @@
 
 import UIKit
 
-class DRDoubleTapButton: UIView {
+@IBDesignable
+public class DRDoubleTapButton: UIView {
     let primaryButton   = UIButton()
     let confirmButton   = UIButton()
     let label           = UILabel()
@@ -21,20 +22,44 @@ class DRDoubleTapButton: UIView {
     var buttonSlidesHorizontally = true
     var buttonOriginalCenter: CGPoint!
     
-    var primaryButtonTitle      = "Press Me"
-    var primaryButtonBgColor    = UIColor.blueColor()
+    /// Text for the primary button. Be sure that it fits the button. Default to "Slide left"
+    @IBInspectable var primaryButtonTitle: String = "Slide left" {
+        didSet {
+            primaryButton.setTitle(primaryButtonTitle, forState: .Normal)
+        }
+    }
+    
+    /// Background color for the primary button. Be sure that it's different than primaryButtonTitleColor to make it readable
+    @IBInspectable var primaryButtonBgColor: UIColor = UIColor.whiteColor() {
+        didSet {
+            primaryButton.backgroundColor = primaryButtonBgColor
+        }
+    }
+    
+    /// Text color for the primary button. Be sure that it's different than primaryButtonBgColor to make it readable
+    @IBInspectable var primaryButtonTitleColor: UIColor = UIColor.whiteColor() {
+        didSet {
+            primaryButton.setTitleColor(primaryButtonTitleColor, forState: .Normal)
+        }
+    }
+    
     var primaryButtonReactsToTap = false
     var buttonAnimationDuration = 0.5
     
     var confirmButtonTitle      = "Confirm"
-    var confirmButtonBgColor    = UIColor.redColor()
+
+    @IBInspectable var confirmButtonBgColor: UIColor = UIColor.whiteColor() {
+        didSet {
+            confirmButton.backgroundColor = confirmButtonBgColor
+        }
+    }
     
     var labelSuccessText    = "OK!"
     var labelSuccessColor   = UIColor.greenColor()
     var labelErrorText      = "Error. Try again."
     var labelErrorColor     = UIColor.redColor()
 
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
@@ -80,7 +105,7 @@ class DRDoubleTapButton: UIView {
     }
     
     /// Called when the system wants update a layout
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         let width   = bounds.size.width
         let height  = bounds.size.height
         
@@ -148,6 +173,41 @@ class DRDoubleTapButton: UIView {
             UIView.animateWithDuration(buttonAnimationDuration) {
                 self.primaryButton.center = self.buttonOriginalCenter
             }
+        }
+    }
+}
+
+/// MARK: UIView extensions
+extension UIView {
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+}
+
+extension UIView {
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+}
+
+extension UIView {
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            return UIColor(CGColor: layer.borderColor)
+        }
+        set {
+            layer.borderColor = newValue?.CGColor
         }
     }
 }

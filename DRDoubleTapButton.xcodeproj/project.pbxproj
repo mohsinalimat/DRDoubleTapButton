@@ -363,7 +363,6 @@
 		F5606A5F1B595B6500316C36 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -382,7 +381,6 @@
 		F5606A601B595B6500316C36 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -413,6 +411,7 @@
 				F5606A5D1B595B6500316C36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F5606A5E1B595B6500316C36 /* Build configuration list for PBXNativeTarget "DRDoubleTapButtonTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +420,7 @@
 				F5606A601B595B6500316C36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
