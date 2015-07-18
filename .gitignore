@@ -1,6 +1,5 @@
 # Xcode
 #
-*.xcodeproj
 *.DS_Store
 DRDoubleTapButtonTests/
 
