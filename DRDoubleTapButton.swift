@@ -115,7 +115,9 @@ public class DRDoubleTapButton: UIView {
         }
     }
     
-    @IBInspectable var functionToCall: () -> Bool = testFunction
+/// MARK: function to call in confirm button
+    /// Function that the confirm button calls. You must to define it in code (IBInspectable doesn't accept function type) It must be a reference to a function wich returns a boolean, but you can change the implementation. Just be sure to change it also in confirmTap() when it is used. Default to (() -> true)
+    var functionToCall: () -> Bool = { return false }
     
 /// MARK: Label properties
     /// Text for label when confirm button returns a success message. Defatul to "SUCCESS"
@@ -150,14 +152,14 @@ public class DRDoubleTapButton: UIView {
     
     /// Initialize the component
     func setup() {
-/// MARK: Setting up label properties
+        /// Setting up label properties
         label.text = labelSuccessText
         label.textColor = labelSuccessTextColor
         label.textAlignment = .Center
         label.backgroundColor = labelSuccessBgColor
         addSubview(label)
         
-/// MARK: Setting up buttons properties
+        /// Setting up buttons properties
         confirmButton.setTitle(confirmButtonTitle, forState: .Normal)
         confirmButton.backgroundColor = confirmButtonBgColor
         addSubview(confirmButton)
@@ -166,7 +168,7 @@ public class DRDoubleTapButton: UIView {
         primaryButton.backgroundColor = primaryButtonBgColor
         addSubview(primaryButton)
         
-/// MARK: Setting up actions for buttons
+        /// Setting up actions for buttons
         if primaryButtonReactsToTap {
             primaryButton.addTarget(self, action: "slideButtonOutOfFrame:", forControlEvents: .TouchDown)
         }
@@ -226,7 +228,7 @@ public class DRDoubleTapButton: UIView {
         }
     }
     
-    /// Tap in the confirm button
+    /// Tap in the confirm button. Calls to functionToCall to manage the response
     @IBAction func confirmTap(sender: UIButton) {
         if functionToCall() {
             label.text = labelSuccessText
@@ -250,6 +252,7 @@ public class DRDoubleTapButton: UIView {
         }
     }
     
+    /// Slides button out of the frame if the user slide it beyond the center of the component or if he taps in the primary button when primaryButtonReactsToTap is true
     func slideButtonOutOfFrame(button: UIButton) {
         UIView.animateWithDuration(buttonAnimationDuration, animations: {
             if self.buttonSlidesHorizontally {
@@ -261,7 +264,7 @@ public class DRDoubleTapButton: UIView {
         })
     }
     
-    /// Returns primary button to its original position when user doesn't slide it beyond the center of the component
+    /// Returns button to its original position when user doesn't slide it beyond the center of the component
     func slideButtonToOriginalPosition(button: UIButton) {
         if button.center != buttonOriginalCenter {
             UIView.animateWithDuration(buttonAnimationDuration) {
@@ -269,8 +272,4 @@ public class DRDoubleTapButton: UIView {
             }
         }
     }
-}
-
-public func testFunction() -> Bool {
-    return true
 }
