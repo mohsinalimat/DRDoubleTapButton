@@ -152,6 +152,9 @@ public class DRDoubleTapButton: UIView {
     
     /// Initialize the component
     func setup() {
+        
+        self.clipsToBounds = true
+        
         /// Setting up label properties
         label.text = labelSuccessText
         label.textColor = labelSuccessTextColor

@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYH-pE-DQt" customClass="DRDoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYH-pE-DQt" customClass="DRDoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
                                 <rect key="frame" x="16" y="134" width="200" height="44"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="primaryButtonTitle" value="DELETE"/>
@@ -36,6 +36,41 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="confirmButtonTitleColor">
                                         <color key="value" red="1" green="0.0" blue="0.1999483218" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrf-ta-Ix7" customClass="DRDoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
+                                <rect key="frame" x="16" y="319" width="171" height="171"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryButtonTitleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryButtonBgColor">
+                                        <color key="value" red="0.93333619832992554" green="0.42931070923805237" blue="0.47143244743347168" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryButtonTitle" value="RED BUTTON"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmButtonTitleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmButtonBgColor">
+                                        <color key="value" red="1" green="0.0" blue="0.1999483218" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="confirmButtonTitle" value="CONFIRM"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelSuccessText" value="SENDED"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelSuccessTextColor">
+                                        <color key="value" red="0.52108031511306763" green="0.96340698003768921" blue="0.52631384134292603" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelSuccessBgColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelErrorTextColor">
+                                        <color key="value" red="1" green="0.0" blue="0.1999483218" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelErrorBgColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelErrorText" value="ERROR"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="buttonSlidesHorizontally" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
