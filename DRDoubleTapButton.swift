@@ -8,34 +8,6 @@
 
 import UIKit
 
-//@IBDesignable
-//public class PrimaryButton: UIButton {
-//    
-//        let primaryButton   = UIButton()
-//    /// Text for the primary button. Be sure that it fits the button. Default to empty string
-//    @IBInspectable var title: String = "" {
-//        didSet {
-//            primaryButton.setTitle(title, forState: .Normal)
-//        }
-//    }
-//    
-//    required public init(coder aDecoder: NSCoder!) {
-//        super.init(coder: aDecoder)
-//        setup()
-//    }
-//    
-//    /// Users can use both init functions
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        setup()
-//    }
-//    
-//    func setup() {
-//        addSubview(primaryButton)
-//    }
-//    
-//}
-
 @IBDesignable
 public class DRDoubleTapButton: UIView {
     /// Elements
@@ -43,7 +15,7 @@ public class DRDoubleTapButton: UIView {
     let confirmButton   = UIButton()
     let label           = UILabel()
     
-    /// MARK: frame properties
+/// MARK: frame properties
     /// Corner Radius of the entire component. Default to empty (no radius)
     @IBInspectable var cornerRadius: CGFloat {
         get {
@@ -75,7 +47,7 @@ public class DRDoubleTapButton: UIView {
         }
     }
     
-    /// MARK: Common Buttons properties
+/// MARK: Common Buttons properties
     /// Button Vertical Slide. Computed property to move the button vertically outside the frame
     var buttonVerticalSlide: CGFloat {
             return -buttonHeight / 2
@@ -94,13 +66,16 @@ public class DRDoubleTapButton: UIView {
     /// Button Height. Default to 44
     @IBInspectable var buttonHeight: CGFloat = 44.0
     
-    /// Controls the sliding direction for the buttons. If true, buttons slide horizontal; if false, buttons slides vertical
-    @IBInspectable var buttonSlidesHorizontally = true
+    /// Controls the sliding direction for the buttons. If true, buttons slide horizontal; if false, buttons slides vertical. Default: slideds horizontally
+    @IBInspectable var buttonSlidesHorizontally: Bool = true
 
     /// NSTimeInterval duration of the buttons slide animation
-    @IBInspectable var buttonAnimationDuration = 0.5
+    @IBInspectable var buttonAnimationDuration: NSTimeInterval = 0.5
     
-    /// MARK: Primary Button properties
+/// MARK: Primary Button properties
+    /// Controls if the primary button works reacts to a single tap or to pan gesture. Default: only reacts to pan gesture
+    @IBInspectable var primaryButtonReactsToTap: Bool = false
+    
     /// Text for the primary button. Be sure that it fits the button. Default to empty string
     @IBInspectable var primaryButtonTitle: String = "" {
         didSet {
@@ -108,36 +83,75 @@ public class DRDoubleTapButton: UIView {
         }
     }
     
-    /// Background color for the primary button. Be sure that it's different than primaryButtonTitleColor to make it readable
-    @IBInspectable var primaryButtonBgColor: UIColor = UIColor.whiteColor() {
-        didSet {
-            primaryButton.backgroundColor = primaryButtonBgColor
-        }
-    }
-    
     /// Text color for the primary button. Be sure that it's different than primaryButtonBgColor to make it readable
-    @IBInspectable var primaryButtonTitleColor: UIColor = UIColor.whiteColor() {
+    @IBInspectable var primaryButtonTitleColor: UIColor? = UIColor.whiteColor() {
         didSet {
             primaryButton.setTitleColor(primaryButtonTitleColor, forState: .Normal)
         }
     }
     
-    var primaryButtonReactsToTap = false
-
+    /// Background color for the primary button. Be sure that it's different than primaryButtonTitleColor to make it readable
+    @IBInspectable var primaryButtonBgColor: UIColor? = UIColor.whiteColor() {
+        didSet {
+            primaryButton.backgroundColor = primaryButtonBgColor
+        }
+    }
     
-    var confirmButtonTitle      = "Confirm"
+/// MARK: Confirm Button properties
+    ///
+    /// Text for the confirm button. Be sure that it fits the button. Default to "CONFIRM"
+    @IBInspectable var confirmButtonTitle: String = "CONFIRM" {
+        didSet {
+            confirmButton.setTitle(confirmButtonTitle, forState: .Normal)
+        }
+    }
+    
+    /// Text color for the confirm button. Be sure that it's different than confirmButtonBgColor to make it readable
+    @IBInspectable var confirmButtonTitleColor: UIColor = UIColor.whiteColor() {
+        didSet {
+            confirmButton.setTitleColor(confirmButtonTitleColor, forState: .Normal)
+        }
+    }
 
+    /// Background color for the confirm button. Be sure that it's different than confirmButtonTitleColor to make it readable
     @IBInspectable var confirmButtonBgColor: UIColor = UIColor.whiteColor() {
         didSet {
             confirmButton.backgroundColor = confirmButtonBgColor
         }
     }
     
-    var labelSuccessText    = "OK!"
-    var labelSuccessColor   = UIColor.greenColor()
-    var labelErrorText      = "Error. Try again."
-    var labelErrorColor     = UIColor.redColor()
+/// MARK: Label properties
+    /// Text for label when confirm button returns a success message. Defatul to "SUCCESS"
+    @IBInspectable var labelSuccessText: String = "SUCCESS" {
+        didSet {
+            label.text = labelSuccessText
+        }
+    }
+    
+    /// Text color for label when confirm button returns a success message. Default to green
+    @IBInspectable var labelSuccessTextColor: UIColor? = UIColor.greenColor() {
+        didSet {
+            label.textColor = labelSuccessTextColor
+        }
+    }
+    
+    /// Background color for label when confirm button returns a success message. Default to white
+    @IBInspectable var labelSuccessBgColor: UIColor? = UIColor.whiteColor() {
+        didSet {
+            label.backgroundColor = labelSuccessBgColor
+        }
+    }
+    
+    /// Text for label when confirm button returns an error message. Defatul to "ERROR"
+    @IBInspectable var labelErrorText: String = "ERROR"
+    
+    /// Text color for label when confirm button returns an error message. Default to red
+    @IBInspectable var labelErrorTextColor: UIColor? = UIColor.redColor()
+    
+    /// Background color for label when confirm button returns an error message. Default to white
+    @IBInspectable var labelErrorBgColor: UIColor? = UIColor.redColor()
 
+/// MARK: Initialization
     required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
@@ -151,13 +165,14 @@ public class DRDoubleTapButton: UIView {
     
     /// Initialize the component
     func setup() {
-        /// MARK: Setting label properties
+/// MARK: Setting up label properties
         label.text = labelSuccessText
+        label.textColor = labelSuccessTextColor
         label.textAlignment = .Center
-        label.backgroundColor = labelSuccessColor
+        label.backgroundColor = labelSuccessBgColor
         addSubview(label)
         
-        /// MARK: Setting buttons properties
+/// MARK: Setting up buttons properties
         confirmButton.setTitle(confirmButtonTitle, forState: .Normal)
         confirmButton.backgroundColor = confirmButtonBgColor
         addSubview(confirmButton)
@@ -166,7 +181,7 @@ public class DRDoubleTapButton: UIView {
         primaryButton.backgroundColor = primaryButtonBgColor
         addSubview(primaryButton)
         
-        /// MARK: Setting actions for buttons
+        /// MARK: Setting up actions for buttons
         if primaryButtonReactsToTap {
             primaryButton.addTarget(self, action: "primaryTap:", forControlEvents: .TouchDown)
         }
@@ -193,7 +208,7 @@ public class DRDoubleTapButton: UIView {
         label.frame = CGRect(x: 0, y: 0, width: width, height: height)
     }
     
-    /// MARK: Button actions handlers
+/// MARK: Button actions handlers
     @IBAction func primaryTap(sender: UIButton) {
         UIView.animateWithDuration(buttonAnimationDuration, animations: {
             if self.buttonSlidesHorizontally {
