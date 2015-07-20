@@ -8,22 +8,101 @@
 
 import UIKit
 
+//@IBDesignable
+//public class PrimaryButton: UIButton {
+//    
+//        let primaryButton   = UIButton()
+//    /// Text for the primary button. Be sure that it fits the button. Default to empty string
+//    @IBInspectable var title: String = "" {
+//        didSet {
+//            primaryButton.setTitle(title, forState: .Normal)
+//        }
+//    }
+//    
+//    required public init(coder aDecoder: NSCoder!) {
+//        super.init(coder: aDecoder)
+//        setup()
+//    }
+//    
+//    /// Users can use both init functions
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        setup()
+//    }
+//    
+//    func setup() {
+//        addSubview(primaryButton)
+//    }
+//    
+//}
+
 @IBDesignable
 public class DRDoubleTapButton: UIView {
+    /// Elements
     let primaryButton   = UIButton()
     let confirmButton   = UIButton()
     let label           = UILabel()
+    
+    /// MARK: frame properties
+    /// Corner Radius of the entire component. Default to empty (no radius)
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
 
-    var buttonTitleColor   = UIColor.whiteColor()
-    var buttonWidth: CGFloat = 200.0
-    var buttonHeight: CGFloat = 44.0
-    var buttonVerticalSlide: CGFloat = -22.0
-    var buttonHorizontalSlide: CGFloat = -100.0
-    var buttonSlidesHorizontally = true
+    /// Border Width of the entire component. Default to empty (no border)
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    /// Border Color of the entire component. Default to empty (no color)
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            return UIColor(CGColor: layer.borderColor)
+        }
+        set {
+            layer.borderColor = newValue?.CGColor
+        }
+    }
+    
+    /// MARK: Common Buttons properties
+    /// Button Vertical Slide. Computed property to move the button vertically outside the frame
+    var buttonVerticalSlide: CGFloat {
+            return -buttonHeight / 2
+    }
+    /// Button Horizontal Slide. Computed property to move the button horizontally outside the frame
+    var buttonHorizontalSlide: CGFloat {
+            return -buttonWidth / 2
+    }
+    
+    /// Button Original Center. To return to its original position after slide the button
     var buttonOriginalCenter: CGPoint!
     
-    /// Text for the primary button. Be sure that it fits the button. Default to "Slide left"
-    @IBInspectable var primaryButtonTitle: String = "Slide left" {
+    /// Button Width. Default to 200
+    @IBInspectable var buttonWidth: CGFloat = 200.0
+    
+    /// Button Height. Default to 44
+    @IBInspectable var buttonHeight: CGFloat = 44.0
+    
+    /// Controls the sliding direction for the buttons. If true, buttons slide horizontal; if false, buttons slides vertical
+    @IBInspectable var buttonSlidesHorizontally = true
+
+    /// NSTimeInterval duration of the buttons slide animation
+    @IBInspectable var buttonAnimationDuration = 0.5
+    
+    /// MARK: Primary Button properties
+    /// Text for the primary button. Be sure that it fits the button. Default to empty string
+    @IBInspectable var primaryButtonTitle: String = "" {
         didSet {
             primaryButton.setTitle(primaryButtonTitle, forState: .Normal)
         }
@@ -44,7 +123,7 @@ public class DRDoubleTapButton: UIView {
     }
     
     var primaryButtonReactsToTap = false
-    var buttonAnimationDuration = 0.5
+
     
     var confirmButtonTitle      = "Confirm"
 
@@ -79,9 +158,6 @@ public class DRDoubleTapButton: UIView {
         addSubview(label)
         
         /// MARK: Setting buttons properties
-        buttonVerticalSlide = -(buttonHeight / 2)
-        buttonHorizontalSlide = -(buttonWidth / 2)
-        
         confirmButton.setTitle(confirmButtonTitle, forState: .Normal)
         confirmButton.backgroundColor = confirmButtonBgColor
         addSubview(confirmButton)
@@ -173,41 +249,6 @@ public class DRDoubleTapButton: UIView {
             UIView.animateWithDuration(buttonAnimationDuration) {
                 self.primaryButton.center = self.buttonOriginalCenter
             }
-        }
-    }
-}
-
-/// MARK: UIView extensions
-extension UIView {
-    @IBInspectable var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-            layer.masksToBounds = newValue > 0
-        }
-    }
-}
-
-extension UIView {
-    @IBInspectable var borderWidth: CGFloat {
-        get {
-            return layer.borderWidth
-        }
-        set {
-            layer.borderWidth = newValue
-        }
-    }
-}
-
-extension UIView {
-    @IBInspectable var borderColor: UIColor? {
-        get {
-            return UIColor(CGColor: layer.borderColor)
-        }
-        set {
-            layer.borderColor = newValue?.CGColor
         }
     }
 }
