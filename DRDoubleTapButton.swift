@@ -48,23 +48,18 @@ public class DRDoubleTapButton: UIView {
     }
     
 /// MARK: Common Buttons properties
-    /// Button Vertical Slide. Computed property to move the button vertically outside the frame
-    var buttonVerticalSlide: CGFloat {
-            return -buttonHeight / 2
-    }
     /// Button Horizontal Slide. Computed property to move the button horizontally outside the frame
     var buttonHorizontalSlide: CGFloat {
-            return -buttonWidth / 2
+            return -bounds.size.width / 2
+    }
+
+    /// Button Vertical Slide. Computed property to move the button vertically outside the frame
+    var buttonVerticalSlide: CGFloat {
+        return -bounds.size.height / 2
     }
     
     /// Button Original Center. To return to its original position after slide the button
     var buttonOriginalCenter: CGPoint!
-    
-    /// Button Width. Default to 200
-    @IBInspectable var buttonWidth: CGFloat = 200.0
-    
-    /// Button Height. Default to 44
-    @IBInspectable var buttonHeight: CGFloat = 44.0
     
     /// Controls the sliding direction for the buttons. If true, buttons slide horizontal; if false, buttons slides vertical. Default: slideds horizontally
     @IBInspectable var buttonSlidesHorizontally: Bool = true
@@ -120,36 +115,26 @@ public class DRDoubleTapButton: UIView {
         }
     }
     
+    @IBInspectable var functionToCall: () -> Bool = testFunction
+    
 /// MARK: Label properties
     /// Text for label when confirm button returns a success message. Defatul to "SUCCESS"
-    @IBInspectable var labelSuccessText: String = "SUCCESS" {
-        didSet {
-            label.text = labelSuccessText
-        }
-    }
+    @IBInspectable var labelSuccessText: String = "SUCCESS"
     
     /// Text color for label when confirm button returns a success message. Default to green
-    @IBInspectable var labelSuccessTextColor: UIColor? = UIColor.greenColor() {
-        didSet {
-            label.textColor = labelSuccessTextColor
-        }
-    }
+    @IBInspectable var labelSuccessTextColor: UIColor? = UIColor.greenColor()
     
     /// Background color for label when confirm button returns a success message. Default to white
-    @IBInspectable var labelSuccessBgColor: UIColor? = UIColor.whiteColor() {
-        didSet {
-            label.backgroundColor = labelSuccessBgColor
-        }
-    }
+    @IBInspectable var labelSuccessBgColor: UIColor? = UIColor.whiteColor()
     
-    /// Text for label when confirm button returns an error message. Defatul to "ERROR"
+    /// Text for label when confirm button returns an error message. Default to "ERROR"
     @IBInspectable var labelErrorText: String = "ERROR"
     
     /// Text color for label when confirm button returns an error message. Default to red
     @IBInspectable var labelErrorTextColor: UIColor? = UIColor.redColor()
     
     /// Background color for label when confirm button returns an error message. Default to white
-    @IBInspectable var labelErrorBgColor: UIColor? = UIColor.redColor()
+    @IBInspectable var labelErrorBgColor: UIColor? = UIColor.whiteColor()
 
 /// MARK: Initialization
     required public init(coder aDecoder: NSCoder) {
@@ -181,9 +166,9 @@ public class DRDoubleTapButton: UIView {
         primaryButton.backgroundColor = primaryButtonBgColor
         addSubview(primaryButton)
         
-        /// MARK: Setting up actions for buttons
+/// MARK: Setting up actions for buttons
         if primaryButtonReactsToTap {
-            primaryButton.addTarget(self, action: "primaryTap:", forControlEvents: .TouchDown)
+            primaryButton.addTarget(self, action: "slideButtonOutOfFrame:", forControlEvents: .TouchDown)
         }
         else {
             /// Adding pan gesture to primary button
@@ -197,10 +182,10 @@ public class DRDoubleTapButton: UIView {
     
     /// Called when the system wants update a layout
     override public func layoutSubviews() {
-        let width   = bounds.size.width
-        let height  = bounds.size.height
-        
-        primaryButton.frame = CGRect(x: 0, y: 0, width: self.buttonWidth, height: self.buttonHeight)
+        let width = bounds.size.width
+        let height = bounds.size.height
+
+        primaryButton.frame = CGRect(x: 0, y: 0, width: width, height: height)
         buttonOriginalCenter = primaryButton.center
         
         confirmButton.frame = CGRect(x: 0, y: 0, width: width, height: height)
@@ -209,61 +194,83 @@ public class DRDoubleTapButton: UIView {
     }
     
 /// MARK: Button actions handlers
-    @IBAction func primaryTap(sender: UIButton) {
-        UIView.animateWithDuration(buttonAnimationDuration, animations: {
-            if self.buttonSlidesHorizontally {
-                self.primaryButton.center.x = self.buttonHorizontalSlide
-            }
-            else {
-                self.primaryButton.center.y = self.buttonVerticalSlide
-            }
-        })
-    }
-    
+    /// Pan gesture of primary button. When user slide the button beyond the center of the component, it slides out the frame
     @IBAction func primaryHandlePan(gesture: UIPanGestureRecognizer) {
+        let width = bounds.size.width
+        let height = bounds.size.height
+        
         switch gesture.state {
         case .Changed:
             var translation = gesture.translationInView(primaryButton)
 
             if buttonSlidesHorizontally {
-                let minXTranslation = buttonOriginalCenter.x - buttonWidth
-                let maxXTranslation = buttonOriginalCenter.x + buttonWidth
+                let minXTranslation = buttonOriginalCenter.x - width
+                let maxXTranslation = buttonOriginalCenter.x + width
                 primaryButton.center.x = max(minXTranslation, min(maxXTranslation, primaryButton.center.x + translation.x))
             }
             else {
-                let minYTranslation = buttonOriginalCenter.y - buttonHeight
-                let maxYTranslation = buttonOriginalCenter.y + buttonHeight
+                let minYTranslation = buttonOriginalCenter.y - height
+                let maxYTranslation = buttonOriginalCenter.y + height
                 primaryButton.center.y = max(minYTranslation, min(maxYTranslation, primaryButton.center.y + translation.y))
             }
             gesture.setTranslation(CGPointZero, inView: primaryButton)
             
         case .Ended:
             if primaryButton.center.x <= 0 || primaryButton.center.y <= 0 {
-                primaryTap(primaryButton)
+                slideButtonOutOfFrame(primaryButton)
             }
             else {
-                slideButtonToOriginalPosition()
+                slideButtonToOriginalPosition(primaryButton)
             }
         default: break
         }
     }
     
+    /// Tap in the confirm button
     @IBAction func confirmTap(sender: UIButton) {
+        if functionToCall() {
+            label.text = labelSuccessText
+            label.textColor = labelSuccessTextColor
+            label.backgroundColor = labelSuccessBgColor
+            
+            slideButtonOutOfFrame(confirmButton)
+        }
+        else {
+            label.text = labelErrorText
+            label.textColor = labelErrorTextColor
+            label.backgroundColor = labelErrorBgColor
+            
+            slideButtonOutOfFrame(confirmButton)
+            
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue()) {
+                self.slideButtonToOriginalPosition(self.primaryButton)
+                self.slideButtonToOriginalPosition(self.confirmButton)
+            }
+        }
+    }
+    
+    func slideButtonOutOfFrame(button: UIButton) {
         UIView.animateWithDuration(buttonAnimationDuration, animations: {
             if self.buttonSlidesHorizontally {
-                self.confirmButton.center.x = self.buttonHorizontalSlide
+                button.center.x = self.buttonHorizontalSlide
             }
             else {
-                self.confirmButton.center.y = self.buttonVerticalSlide
+                button.center.y = self.buttonVerticalSlide
             }
         })
     }
     
-    func slideButtonToOriginalPosition() {
-        if primaryButton.center != buttonOriginalCenter {
+    /// Returns primary button to its original position when user doesn't slide it beyond the center of the component
+    func slideButtonToOriginalPosition(button: UIButton) {
+        if button.center != buttonOriginalCenter {
             UIView.animateWithDuration(buttonAnimationDuration) {
-                self.primaryButton.center = self.buttonOriginalCenter
+                button.center = self.buttonOriginalCenter
             }
         }
     }
+}
+
+public func testFunction() -> Bool {
+    return true
 }
