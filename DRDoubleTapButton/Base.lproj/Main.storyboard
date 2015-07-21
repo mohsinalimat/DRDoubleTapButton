@@ -26,9 +26,6 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="confirmButtonTitle" value="CONFIRM"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="primaryButtonTitleColor">
                                         <color key="value" red="0.16130126910000001" green="0.29217539910000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -37,6 +34,9 @@
                                         <color key="value" red="1" green="0.0" blue="0.1999483218" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="bgImageName" value="white-button-bg"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSO-t1-yau" customClass="DRDoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
@@ -72,6 +72,12 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelErrorText" value="OOPS! TRY AGAIN!"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="confirmButtonTitle" value="CONFIRM"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="reactsToTap" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrf-ta-Ix7" customClass="DRDoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">

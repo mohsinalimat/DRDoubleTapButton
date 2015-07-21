@@ -10,12 +10,38 @@ import UIKit
 
 @IBDesignable
 public class DRDoubleTapButton: UIView {
-    /// Elements
-    let primaryButton   = UIButton()
-    let confirmButton   = UIButton()
-    let label           = UILabel()
     
-/// MARK: frame properties
+    /// MARK: Elements
+    lazy var primaryButton: UIButton = {
+        let button = UIButton()
+        
+        button.setTitle(self.primaryButtonTitle, forState: .Normal)
+        button.backgroundColor = self.primaryButtonBgColor
+        
+        return button
+    }()
+    
+    lazy var confirmButton: UIButton = {
+        let button = UIButton()
+        
+        button.setTitle(self.confirmButtonTitle, forState: .Normal)
+        button.backgroundColor = self.confirmButtonBgColor
+        
+        return button
+    }()
+    
+    lazy var label: UILabel = {
+        let tempLabel = UILabel()
+        
+        tempLabel.text = self.labelSuccessText
+        tempLabel.textColor = self.labelSuccessTextColor
+        tempLabel.textAlignment = .Center
+        tempLabel.backgroundColor = self.labelSuccessBgColor
+        
+        return tempLabel
+    }()
+    
+/// MARK: Frame properties
     /// Corner Radius of the frame. Default to empty (no radius)
     @IBInspectable var borderRadius: CGFloat {
         get {
@@ -49,17 +75,17 @@ public class DRDoubleTapButton: UIView {
     
 /// MARK: Common Buttons properties
     /// Button Horizontal Slide. Computed property to move the button horizontally outside the frame
-    var buttonHorizontalSlide: CGFloat {
+    var horizontalSlide: CGFloat {
         return -bounds.size.width / 2
     }
 
     /// Button Vertical Slide. Computed property to move the button vertically outside the frame
-    var buttonVerticalSlide: CGFloat {
+    var verticalSlide: CGFloat {
         return -bounds.size.height / 2
     }
     
     /// Button Original Center. To return to its original position after slide the button
-    var buttonOriginalCenter: CGPoint!
+    var originalCenter: CGPoint!
     
     /// Controls the sliding direction for the buttons. If true, buttons slide horizontal; if false, buttons slides vertical. Default: slideds horizontally
     @IBInspectable var buttonSlidesHorizontally: Bool = true
@@ -160,22 +186,10 @@ public class DRDoubleTapButton: UIView {
     /// Initialize the component
     func setup() {
         
-        self.clipsToBounds = true
+        clipsToBounds = true
         
-        /// Setting up label properties
-        label.text = labelSuccessText
-        label.textColor = labelSuccessTextColor
-        label.textAlignment = .Center
-        label.backgroundColor = labelSuccessBgColor
         addSubview(label)
-        
-        /// Setting up buttons properties
-        confirmButton.setTitle(confirmButtonTitle, forState: .Normal)
-        confirmButton.backgroundColor = confirmButtonBgColor
         addSubview(confirmButton)
-        
-        primaryButton.setTitle(primaryButtonTitle, forState: .Normal)
-        primaryButton.backgroundColor = primaryButtonBgColor
         addSubview(primaryButton)
     }
     
@@ -185,7 +199,7 @@ public class DRDoubleTapButton: UIView {
         let height = bounds.size.height
 
         primaryButton.frame = CGRect(x: 0, y: 0, width: width, height: height)
-        buttonOriginalCenter = primaryButton.center
+        originalCenter = primaryButton.center
         
         confirmButton.frame = CGRect(x: 0, y: 0, width: width, height: height)
         
@@ -216,13 +230,13 @@ public class DRDoubleTapButton: UIView {
             var translation = gesture.translationInView(primaryButton)
 
             if buttonSlidesHorizontally {
-                let minXTranslation = buttonOriginalCenter.x - width
-                let maxXTranslation = buttonOriginalCenter.x + width
+                let minXTranslation = originalCenter.x - width
+                let maxXTranslation = originalCenter.x + width
                 primaryButton.center.x = max(minXTranslation, min(maxXTranslation, primaryButton.center.x + translation.x))
             }
             else {
-                let minYTranslation = buttonOriginalCenter.y - height
-                let maxYTranslation = buttonOriginalCenter.y + height
+                let minYTranslation = originalCenter.y - height
+                let maxYTranslation = originalCenter.y + height
                 primaryButton.center.y = max(minYTranslation, min(maxYTranslation, primaryButton.center.y + translation.y))
             }
             gesture.setTranslation(CGPointZero, inView: primaryButton)
@@ -266,19 +280,19 @@ public class DRDoubleTapButton: UIView {
     func slideButtonOutOfFrame(button: UIButton) {
         UIView.animateWithDuration(buttonAnimationDuration, animations: {
             if self.buttonSlidesHorizontally {
-                button.center.x = self.buttonHorizontalSlide
+                button.center.x = self.horizontalSlide
             }
             else {
-                button.center.y = self.buttonVerticalSlide
+                button.center.y = self.verticalSlide
             }
         })
     }
     
     /// Returns button to its original position when user doesn't slide it beyond the center of the component
     func slideButtonToOriginalPosition(button: UIButton) {
-        if button.center != buttonOriginalCenter {
+        if button.center != originalCenter {
             UIView.animateWithDuration(buttonAnimationDuration) {
-                button.center = self.buttonOriginalCenter
+                button.center = self.originalCenter
             }
         }
     }

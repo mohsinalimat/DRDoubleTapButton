@@ -38,7 +38,7 @@
 		F5606A511B595B6500316C36 /* DRDoubleTapButtonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DRDoubleTapButtonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5606A561B595B6500316C36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5606A571B595B6500316C36 /* DRDoubleTapButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRDoubleTapButtonTests.swift; sourceTree = "<group>"; };
-		F5606A611B595C1800316C36 /* DRDoubleTapButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DRDoubleTapButton.swift; sourceTree = SOURCE_ROOT; };
+		F5606A611B595C1800316C36 /* DRDoubleTapButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DRDoubleTapButton.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
