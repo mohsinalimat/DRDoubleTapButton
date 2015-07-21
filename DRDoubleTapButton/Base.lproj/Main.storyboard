@@ -19,18 +19,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYH-pE-DQt" customClass="DRDoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
                                 <rect key="frame" x="16" y="28" width="200" height="44"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryButtonTitle" value="DELETE"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryText" value="DELETE"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" red="0.16130126910453957" green="0.29217539908514101" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="confirmButtonTitle" value="CONFIRM"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryButtonTitleColor">
+                                    <userDefinedRuntimeAttribute type="string" keyPath="confirmText" value="CONFIRM"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryTxtColor">
                                         <color key="value" red="0.16130126910000001" green="0.29217539910000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmButtonTitleColor">
+                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmTxtColor">
                                         <color key="value" red="1" green="0.0" blue="0.1999483218" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="bgImageName" value="white-button-bg"/>
@@ -43,34 +43,34 @@
                                 <rect key="frame" x="16" y="114" width="300" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="buttonSlidesHorizontally" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryButtonTitleColor">
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="slidesHorizontally" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryTxtColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryButtonBgColor">
+                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryBgColor">
                                         <color key="value" red="0.63895374536514282" green="0.27958551049232483" blue="0.73563534021377563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmButtonTitleColor">
+                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmTxtColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmButtonBgColor">
+                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmBgColor">
                                         <color key="value" red="0.34752580523490906" green="0.64352220296859741" blue="0.16862347722053528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="labelSuccessTextColor">
+                                    <userDefinedRuntimeAttribute type="color" keyPath="successTxtColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="labelSuccessBgColor">
+                                    <userDefinedRuntimeAttribute type="color" keyPath="successBgColor">
                                         <color key="value" red="0.32495242357254028" green="0.65731793642044067" blue="0.58877795934677124" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelSuccessText" value="GREAT!"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="labelErrorTextColor">
+                                    <userDefinedRuntimeAttribute type="string" keyPath="successText" value="GREAT!"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="errorTxtColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="labelErrorBgColor">
+                                    <userDefinedRuntimeAttribute type="color" keyPath="errorBgColor">
                                         <color key="value" red="0.68325698375701904" green="0.16707631945610046" blue="0.13582015037536621" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelErrorText" value="OOPS! TRY AGAIN!"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="confirmButtonTitle" value="CONFIRM"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="errorText" value="OOPS! TRY AGAIN!"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="confirmText" value="CONFIRM"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="reactsToTap" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
                                         <real key="value" value="3"/>
@@ -84,32 +84,32 @@
                                 <rect key="frame" x="16" y="214" width="171" height="171"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryButtonTitleColor">
+                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryTxtColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryButtonBgColor">
+                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryBgColor">
                                         <color key="value" red="1" green="0.0" blue="0.1999483218" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryButtonTitle" value="WARNING!"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmButtonTitleColor">
+                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryText" value="WARNING!"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmTxtColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmButtonBgColor">
+                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmBgColor">
                                         <color key="value" red="0.16130126910000001" green="0.29217539910000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="confirmButtonTitle" value="LAUNCH"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelSuccessText" value="LAUNCHED"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="labelSuccessTextColor">
+                                    <userDefinedRuntimeAttribute type="string" keyPath="confirmText" value="LAUNCH"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="successText" value="LAUNCHED"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="successTxtColor">
                                         <color key="value" red="0.52108031511306763" green="0.96340698003768921" blue="0.52631384134292603" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="labelSuccessBgColor">
+                                    <userDefinedRuntimeAttribute type="color" keyPath="successBgColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="labelErrorTextColor">
+                                    <userDefinedRuntimeAttribute type="color" keyPath="errorTxtColor">
                                         <color key="value" red="1" green="0.0" blue="0.1999483218" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelErrorText" value="IGNITION ERROR"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="buttonSlidesHorizontally" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="errorText" value="IGNITION ERROR"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="slidesHorizontally" value="NO"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="bgImageName" value="red-button-bg"/>
                                 </userDefinedRuntimeAttributes>
                             </view>

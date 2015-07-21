@@ -11,12 +11,13 @@ import UIKit
 @IBDesignable
 public class DRDoubleTapButton: UIView {
     
-    /// MARK: Elements
+/// MARK: Elements
+    
     lazy var primaryButton: UIButton = {
         let button = UIButton()
         
-        button.setTitle(self.primaryButtonTitle, forState: .Normal)
-        button.backgroundColor = self.primaryButtonBgColor
+        button.setTitle(self.primaryText, forState: .Normal)
+        button.backgroundColor = self.primaryBgColor
         
         return button
     }()
@@ -24,8 +25,8 @@ public class DRDoubleTapButton: UIView {
     lazy var confirmButton: UIButton = {
         let button = UIButton()
         
-        button.setTitle(self.confirmButtonTitle, forState: .Normal)
-        button.backgroundColor = self.confirmButtonBgColor
+        button.setTitle(self.confirmText, forState: .Normal)
+        button.backgroundColor = self.confirmBgColor
         
         return button
     }()
@@ -33,16 +34,18 @@ public class DRDoubleTapButton: UIView {
     lazy var label: UILabel = {
         let tempLabel = UILabel()
         
-        tempLabel.text = self.labelSuccessText
-        tempLabel.textColor = self.labelSuccessTextColor
+        tempLabel.text = self.successText
+        tempLabel.textColor = self.successTxtColor
         tempLabel.textAlignment = .Center
-        tempLabel.backgroundColor = self.labelSuccessBgColor
+        tempLabel.backgroundColor = self.successBgColor
         
         return tempLabel
     }()
     
 /// MARK: Frame properties
-    /// Corner Radius of the frame. Default to empty (no radius)
+    
+    /** Corner Radius of the frame
+        Default to empty (no radius) */
     @IBInspectable var borderRadius: CGFloat {
         get {
             return layer.cornerRadius
@@ -53,7 +56,8 @@ public class DRDoubleTapButton: UIView {
         }
     }
 
-    /// Border Width of the frame. Default to empty (no border)
+    /** Border Width of the frame
+        Default to empty (no border) */
     @IBInspectable var borderWidth: CGFloat {
         get {
             return layer.borderWidth
@@ -63,7 +67,8 @@ public class DRDoubleTapButton: UIView {
         }
     }
     
-    /// Border Color of the frame. Default to empty (no color)
+    /** Border Color of the frame
+        Default to empty (no color) */
     @IBInspectable var borderColor: UIColor? {
         get {
             return UIColor(CGColor: layer.borderColor)
@@ -74,50 +79,66 @@ public class DRDoubleTapButton: UIView {
     }
     
 /// MARK: Common Buttons properties
-    /// Button Horizontal Slide. Computed property to move the button horizontally outside the frame
-    var horizontalSlide: CGFloat {
-        return -bounds.size.width / 2
-    }
-
-    /// Button Vertical Slide. Computed property to move the button vertically outside the frame
-    var verticalSlide: CGFloat {
-        return -bounds.size.height / 2
-    }
     
-    /// Button Original Center. To return to its original position after slide the button
+    /// To move the button horizontally outside the frame
+    lazy var horizontalSlide: CGFloat = {
+        return -self.boundsWidth / 2
+    }()
+
+    /// To move the button vertically outside the frame
+    lazy var verticalSlide: CGFloat = {
+        return -self.boundsHeight / 2
+    }()
+    
+    /// To return button to its original position after slide it
     var originalCenter: CGPoint!
     
-    /// Controls the sliding direction for the buttons. If true, buttons slide horizontal; if false, buttons slides vertical. Default: slideds horizontally
-    @IBInspectable var buttonSlidesHorizontally: Bool = true
-
-    /// NSTimeInterval duration of the buttons slide animation
-    @IBInspectable var buttonAnimationDuration: NSTimeInterval = 0.5
+    /// Duration of the button slide animation
+    var animationDuration: NSTimeInterval = 0.5
+    
+    /** Controls the sliding direction for the buttons. 
+        If true, buttons slide horizontal
+        If false, buttons slides vertical 
+        Default: slides horizontally */
+    @IBInspectable var slidesHorizontally: Bool = true
     
 /// MARK: Primary Button properties
-    /// Controls if the primary button works reacts to a single tap or to pan gesture. Default: only reacts to pan gesture
+    
+    /** Controls if the primary button reacts to a single tap or to pan gesture
+        Default: false - only reacts to pan gesture */
     @IBInspectable var reactsToTap: Bool = false
     
-    /// Text for the primary button. Be sure that it fits the button. Default to "DO SOMETHING AMAZING"
-    @IBInspectable var primaryButtonTitle: String = "DO SOMETHING AMAZING" {
+    /** Text for the primary button 
+        Be sure that it fits the button 
+        Default to "DO SOMETHING" */
+    @IBInspectable var primaryText: String = "DO SOMETHING" {
         didSet {
-            primaryButton.setTitle(primaryButtonTitle, forState: .Normal)
+            primaryButton.setTitle(primaryText, forState: .Normal)
         }
     }
     
-    /// Text color for the primary button. Be sure that it's different than primaryButtonBgColor to make it readable
-    @IBInspectable var primaryButtonTitleColor: UIColor? = UIColor.whiteColor() {
+    /** Text color for the primary button 
+        Be sure that it's different than primaryBgColor to make it readable
+        Default to blue */
+    @IBInspectable var primaryTxtColor: UIColor? = UIColor.blueColor() {
         didSet {
-            primaryButton.setTitleColor(primaryButtonTitleColor, forState: .Normal)
+            primaryButton.setTitleColor(primaryTxtColor, forState: .Normal)
         }
     }
     
-    /// Background color for the primary button. Be sure that it's different than primaryButtonTitleColor to make it readable
-    @IBInspectable var primaryButtonBgColor: UIColor? = UIColor.whiteColor() {
+    /** Background color for the primary button
+        Be sure that it's different than primaryTxtColor to make it readable
+        Default to white */
+    @IBInspectable var primaryBgColor: UIColor? = UIColor.whiteColor() {
         didSet {
-            primaryButton.backgroundColor = primaryButtonBgColor
+            primaryButton.backgroundColor = primaryBgColor
         }
     }
     
+    /** Name of the background image of the primary button
+        Only implemented for primaryButton (adds an image that gives feedback to user that is draggable)
+        If empty, no image is applied
+        Default to empty */
     @IBInspectable var bgImageName: String = "" {
         didSet {
             let bgImage = UIImage(named: bgImageName)
@@ -126,52 +147,86 @@ public class DRDoubleTapButton: UIView {
     }
     
 /// MARK: Confirm Button properties
-    ///
-    /// Text for the confirm button. Be sure that it fits the button. Default to "CONFIRM"
-    @IBInspectable var confirmButtonTitle: String = "CONFIRM" {
+    
+    /** Text for the confirm button
+        Be sure that it fits the button
+        Default to "CONFIRM" */
+    @IBInspectable var confirmText: String = "CONFIRM" {
         didSet {
-            confirmButton.setTitle(confirmButtonTitle, forState: .Normal)
+            confirmButton.setTitle(confirmText, forState: .Normal)
         }
     }
     
-    /// Text color for the confirm button. Be sure that it's different than confirmButtonBgColor to make it readable
-    @IBInspectable var confirmButtonTitleColor: UIColor = UIColor.whiteColor() {
+    /** Text color for the confirm button
+        Be sure that it's different than confirmBgColor to make it readable */
+    @IBInspectable var confirmTxtColor: UIColor = UIColor.whiteColor() {
         didSet {
-            confirmButton.setTitleColor(confirmButtonTitleColor, forState: .Normal)
+            confirmButton.setTitleColor(confirmTxtColor, forState: .Normal)
         }
     }
 
-    /// Background color for the confirm button. Be sure that it's different than confirmButtonTitleColor to make it readable
-    @IBInspectable var confirmButtonBgColor: UIColor = UIColor.whiteColor() {
+    /// Background color for the confirm button. Be sure that it's different than confirmTxtColor to make it readable
+    @IBInspectable var confirmBgColor: UIColor = UIColor.whiteColor() {
         didSet {
-            confirmButton.backgroundColor = confirmButtonBgColor
+            confirmButton.backgroundColor = confirmBgColor
         }
     }
     
 /// MARK: Function to call in confirm button
-    /// Function that the confirm button calls. You must to define it in code (IBInspectable doesn't accept function type) It must be a reference to a function wich returns a boolean, but you can change the implementation. Just be sure to change it also in confirmTap() when it is used. Default to (() -> true)
+
+    /** Function that calls the confirm button
+        You must define it in code (IBInspectable doesn't accept function type)
+        It must be a reference to a function wich returns a boolean, but you can change the implementation
+        
+        @remark Just be sure to change it also in **confirmTap()** when it is used. Default to (() -> true)
+        
+        Functions can be assigned in the ViewController in this way:
+        
+        @code
+            func redButtonPushed() -> Bool {
+            /// Do something and then return boolean
+            return false
+            }
+        @endcode
+    */
     var functionToCall: () -> Bool = { return false }
     
 /// MARK: Label properties
-    /// Text for label when confirm button returns a success message. Defatul to "SUCCESS"
-    @IBInspectable var labelSuccessText: String = "SUCCESS"
+
+    /** Text for label when confirm button returns a success message
+        Defatul to "SUCCESS" */
+    @IBInspectable var successText: String = "SUCCESS"
     
-    /// Text color for label when confirm button returns a success message. Default to green
-    @IBInspectable var labelSuccessTextColor: UIColor? = UIColor.greenColor()
+    /** Text color for label when confirm button returns a success message
+        Default to green */
+    @IBInspectable var successTxtColor: UIColor? = UIColor.greenColor()
     
-    /// Background color for label when confirm button returns a success message. Default to white
-    @IBInspectable var labelSuccessBgColor: UIColor? = UIColor.whiteColor()
+    /** Background color for label when confirm button returns a success message
+        Default to white */
+    @IBInspectable var successBgColor: UIColor? = UIColor.whiteColor()
     
-    /// Text for label when confirm button returns an error message. Default to "ERROR"
-    @IBInspectable var labelErrorText: String = "ERROR"
+    /** Text for label when confirm button returns an error message
+        Default to "ERROR" */
+    @IBInspectable var errorText: String = "ERROR"
     
-    /// Text color for label when confirm button returns an error message. Default to red
-    @IBInspectable var labelErrorTextColor: UIColor? = UIColor.redColor()
+    /** Text color for label when confirm button returns an error message
+        Default to red */
+    @IBInspectable var errorTxtColor: UIColor? = UIColor.redColor()
     
-    /// Background color for label when confirm button returns an error message. Default to white
-    @IBInspectable var labelErrorBgColor: UIColor? = UIColor.whiteColor()
+    /** Background color for label when confirm button returns an error message
+        Default to white */
+    @IBInspectable var errorBgColor: UIColor? = UIColor.whiteColor()
 
 /// MARK: Initialization
+    
+    lazy var boundsWidth: CGFloat = {
+        return self.bounds.size.width
+    }()
+    
+    lazy var boundsHeight: CGFloat = {
+        return self.bounds.size.height
+    }()
+    
     required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
@@ -195,15 +250,13 @@ public class DRDoubleTapButton: UIView {
     
     /// Called when the system wants update a layout
     override public func layoutSubviews() {
-        let width = bounds.size.width
-        let height = bounds.size.height
-
-        primaryButton.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        
+        primaryButton.frame = CGRect(x: 0, y: 0, width: boundsWidth, height: boundsHeight)
         originalCenter = primaryButton.center
         
-        confirmButton.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        confirmButton.frame = CGRect(x: 0, y: 0, width: boundsWidth, height: boundsHeight)
         
-        label.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        label.frame = CGRect(x: 0, y: 0, width: boundsWidth, height: boundsHeight)
         
         /// Setting up actions for buttons
         if reactsToTap {
@@ -220,24 +273,26 @@ public class DRDoubleTapButton: UIView {
     }
     
 /// MARK: Button actions handlers
-    /// Pan gesture of primary button. When user slide the button beyond the center of the component, it slides out the frame
+    
+    /** Pan gesture of primary button
+        When user slide the button beyond the center of the frame, it slides out of the frame */
     @IBAction func primaryHandlePan(gesture: UIPanGestureRecognizer) {
-        let width = bounds.size.width
-        let height = bounds.size.height
         
         switch gesture.state {
         case .Changed:
             var translation = gesture.translationInView(primaryButton)
 
-            if buttonSlidesHorizontally {
-                let minXTranslation = originalCenter.x - width
-                let maxXTranslation = originalCenter.x + width
-                primaryButton.center.x = max(minXTranslation, min(maxXTranslation, primaryButton.center.x + translation.x))
+            if slidesHorizontally {
+                let minXTranslation = originalCenter.x - boundsWidth
+                let maxXTranslation = originalCenter.x + boundsWidth
+                primaryButton.center.x = max(minXTranslation,
+                                            min(maxXTranslation, primaryButton.center.x + translation.x))
             }
             else {
-                let minYTranslation = originalCenter.y - height
-                let maxYTranslation = originalCenter.y + height
-                primaryButton.center.y = max(minYTranslation, min(maxYTranslation, primaryButton.center.y + translation.y))
+                let minYTranslation = originalCenter.y - boundsHeight
+                let maxYTranslation = originalCenter.y + boundsHeight
+                primaryButton.center.y = max(minYTranslation,
+                                            min(maxYTranslation, primaryButton.center.y + translation.y))
             }
             gesture.setTranslation(CGPointZero, inView: primaryButton)
             
@@ -252,22 +307,26 @@ public class DRDoubleTapButton: UIView {
         }
     }
     
-    /// Tap in the confirm button. Calls to functionToCall to manage the response
+    /** Tap in the confirm button
+        Calls to **functionToCall** to manage the response
+        @remark functionToCall() returns a Boolean. If you want to change this definition, change also the functionToCall variable definition */
     @IBAction func confirmTap(sender: UIButton) {
+        
         if functionToCall() {
-            label.text = labelSuccessText
-            label.textColor = labelSuccessTextColor
-            label.backgroundColor = labelSuccessBgColor
+            label.text = successText
+            label.textColor = successTxtColor
+            label.backgroundColor = successBgColor
             
             slideButtonOutOfFrame(confirmButton)
         }
         else {
-            label.text = labelErrorText
-            label.textColor = labelErrorTextColor
-            label.backgroundColor = labelErrorBgColor
+            label.text = errorText
+            label.textColor = errorTxtColor
+            label.backgroundColor = errorBgColor
             
             slideButtonOutOfFrame(confirmButton)
             
+            /// Reset the button if returns error
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
             dispatch_after(delayTime, dispatch_get_main_queue()) {
                 self.slideButtonToOriginalPosition(self.primaryButton)
@@ -278,8 +337,8 @@ public class DRDoubleTapButton: UIView {
     
     /// Slides button out of the frame if the user slide it beyond the center of the component or if he taps in the primary button when primaryButtonReactsToTap is true
     func slideButtonOutOfFrame(button: UIButton) {
-        UIView.animateWithDuration(buttonAnimationDuration, animations: {
-            if self.buttonSlidesHorizontally {
+        UIView.animateWithDuration(animationDuration, animations: {
+            if self.slidesHorizontally {
                 button.center.x = self.horizontalSlide
             }
             else {
@@ -291,7 +350,7 @@ public class DRDoubleTapButton: UIView {
     /// Returns button to its original position when user doesn't slide it beyond the center of the component
     func slideButtonToOriginalPosition(button: UIButton) {
         if button.center != originalCenter {
-            UIView.animateWithDuration(buttonAnimationDuration) {
+            UIView.animateWithDuration(animationDuration) {
                 button.center = self.originalCenter
             }
         }
