@@ -16,8 +16,8 @@ public class DRDoubleTapButton: UIView {
     let label           = UILabel()
     
 /// MARK: frame properties
-    /// Corner Radius of the entire component. Default to empty (no radius)
-    @IBInspectable var cornerRadius: CGFloat {
+    /// Corner Radius of the frame. Default to empty (no radius)
+    @IBInspectable var borderRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -27,7 +27,7 @@ public class DRDoubleTapButton: UIView {
         }
     }
 
-    /// Border Width of the entire component. Default to empty (no border)
+    /// Border Width of the frame. Default to empty (no border)
     @IBInspectable var borderWidth: CGFloat {
         get {
             return layer.borderWidth
@@ -37,7 +37,7 @@ public class DRDoubleTapButton: UIView {
         }
     }
     
-    /// Border Color of the entire component. Default to empty (no color)
+    /// Border Color of the frame. Default to empty (no color)
     @IBInspectable var borderColor: UIColor? {
         get {
             return UIColor(CGColor: layer.borderColor)
@@ -50,7 +50,7 @@ public class DRDoubleTapButton: UIView {
 /// MARK: Common Buttons properties
     /// Button Horizontal Slide. Computed property to move the button horizontally outside the frame
     var buttonHorizontalSlide: CGFloat {
-            return -bounds.size.width / 2
+        return -bounds.size.width / 2
     }
 
     /// Button Vertical Slide. Computed property to move the button vertically outside the frame

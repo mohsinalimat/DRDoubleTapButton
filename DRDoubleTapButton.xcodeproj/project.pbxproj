@@ -80,6 +80,7 @@
 		F5606A3E1B595B6500316C36 /* DRDoubleTapButton */ = {
 			isa = PBXGroup;
 			children = (
+				F5606A431B595B6500316C36 /* ViewController.swift */,
 				F5606A611B595C1800316C36 /* DRDoubleTapButton.swift */,
 				F5606A451B595B6500316C36 /* Main.storyboard */,
 				F5606A3F1B595B6500316C36 /* Supporting Files */,
@@ -90,7 +91,6 @@
 		F5606A3F1B595B6500316C36 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F5606A431B595B6500316C36 /* ViewController.swift */,
 				F5606A411B595B6500316C36 /* AppDelegate.swift */,
 				F5606A481B595B6500316C36 /* Images.xcassets */,
 				F5606A4A1B595B6500316C36 /* LaunchScreen.xib */,

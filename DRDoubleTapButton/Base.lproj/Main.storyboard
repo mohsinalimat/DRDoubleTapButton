@@ -40,7 +40,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSO-t1-yau" customClass="DRDoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
-                                <rect key="frame" x="16" y="100" width="300" height="60"/>
+                                <rect key="frame" x="16" y="114" width="300" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="buttonSlidesHorizontally" value="NO"/>
