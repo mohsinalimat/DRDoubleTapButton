@@ -69,10 +69,10 @@ public class DRDoubleTapButton: UIView {
     
 /// MARK: Primary Button properties
     /// Controls if the primary button works reacts to a single tap or to pan gesture. Default: only reacts to pan gesture
-    @IBInspectable var primaryButtonReactsToTap: Bool = false
+    @IBInspectable var reactsToTap: Bool = false
     
-    /// Text for the primary button. Be sure that it fits the button. Default to empty string
-    @IBInspectable var primaryButtonTitle: String = "" {
+    /// Text for the primary button. Be sure that it fits the button. Default to "DO SOMETHING AMAZING"
+    @IBInspectable var primaryButtonTitle: String = "DO SOMETHING AMAZING" {
         didSet {
             primaryButton.setTitle(primaryButtonTitle, forState: .Normal)
         }
@@ -122,7 +122,7 @@ public class DRDoubleTapButton: UIView {
         }
     }
     
-/// MARK: function to call in confirm button
+/// MARK: Function to call in confirm button
     /// Function that the confirm button calls. You must to define it in code (IBInspectable doesn't accept function type) It must be a reference to a function wich returns a boolean, but you can change the implementation. Just be sure to change it also in confirmTap() when it is used. Default to (() -> true)
     var functionToCall: () -> Bool = { return false }
     
@@ -177,19 +177,6 @@ public class DRDoubleTapButton: UIView {
         primaryButton.setTitle(primaryButtonTitle, forState: .Normal)
         primaryButton.backgroundColor = primaryButtonBgColor
         addSubview(primaryButton)
-        
-        /// Setting up actions for buttons
-        if primaryButtonReactsToTap {
-            primaryButton.addTarget(self, action: "slideButtonOutOfFrame:", forControlEvents: .TouchDown)
-        }
-        else {
-            /// Adding pan gesture to primary button
-            let panReconigzer = UIPanGestureRecognizer(target: self, action: "primaryHandlePan:")
-            panReconigzer.maximumNumberOfTouches = 1
-            primaryButton.addGestureRecognizer(panReconigzer)
-        }
-        
-        confirmButton.addTarget(self, action: "confirmTap:", forControlEvents: .TouchDown)
     }
     
     /// Called when the system wants update a layout
@@ -203,6 +190,19 @@ public class DRDoubleTapButton: UIView {
         confirmButton.frame = CGRect(x: 0, y: 0, width: width, height: height)
         
         label.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        
+        /// Setting up actions for buttons
+        if reactsToTap {
+            primaryButton.addTarget(self, action: "slideButtonOutOfFrame:", forControlEvents: .TouchDown)
+        }
+        else {
+            /// Adding pan gesture to primary button
+            let panReconigzer = UIPanGestureRecognizer(target: self, action: "primaryHandlePan:")
+            panReconigzer.maximumNumberOfTouches = 1
+            primaryButton.addGestureRecognizer(panReconigzer)
+        }
+        
+        confirmButton.addTarget(self, action: "confirmTap:", forControlEvents: .TouchDown)
     }
     
 /// MARK: Button actions handlers

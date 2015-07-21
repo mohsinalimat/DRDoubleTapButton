@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYH-pE-DQt" customClass="DRDoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
-                                <rect key="frame" x="16" y="134" width="200" height="44"/>
+                                <rect key="frame" x="16" y="28" width="200" height="44"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="primaryButtonTitle" value="DELETE"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -39,8 +39,43 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="bgImageName" value="white-button-bg"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSO-t1-yau" customClass="DRDoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
+                                <rect key="frame" x="16" y="100" width="300" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="buttonSlidesHorizontally" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryButtonTitleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryButtonBgColor">
+                                        <color key="value" red="0.63895374536514282" green="0.27958551049232483" blue="0.73563534021377563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmButtonTitleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmButtonBgColor">
+                                        <color key="value" red="0.34752580523490906" green="0.64352220296859741" blue="0.16862347722053528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelSuccessTextColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelSuccessBgColor">
+                                        <color key="value" red="0.32495242357254028" green="0.65731793642044067" blue="0.58877795934677124" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelSuccessText" value="GREAT!"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelErrorTextColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelErrorBgColor">
+                                        <color key="value" red="0.68325698375701904" green="0.16707631945610046" blue="0.13582015037536621" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelErrorText" value="OOPS! TRY AGAIN!"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="confirmButtonTitle" value="CONFIRM"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="reactsToTap" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrf-ta-Ix7" customClass="DRDoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
-                                <rect key="frame" x="16" y="319" width="171" height="171"/>
+                                <rect key="frame" x="16" y="214" width="171" height="171"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="primaryButtonTitleColor">
@@ -75,6 +110,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="deleteButton" destination="hYH-pE-DQt" id="BnR-JM-RlW"/>
+                        <outlet property="makeButton" destination="VSO-t1-yau" id="vXa-HN-5qs"/>
+                        <outlet property="redButton" destination="jrf-ta-Ix7" id="JC1-em-vNS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
