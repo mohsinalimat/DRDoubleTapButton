@@ -36,6 +36,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="confirmButtonTitleColor">
                                         <color key="value" red="1" green="0.0" blue="0.1999483218" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="bgImageName" value="white-button-bg"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrf-ta-Ix7" customClass="DRDoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
@@ -46,17 +47,17 @@
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="primaryButtonBgColor">
-                                        <color key="value" red="0.93333619832992554" green="0.42931070923805237" blue="0.47143244743347168" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="1" green="0.0" blue="0.1999483218" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryButtonTitle" value="RED BUTTON"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryButtonTitle" value="WARNING!"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="confirmButtonTitleColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="confirmButtonBgColor">
-                                        <color key="value" red="1" green="0.0" blue="0.1999483218" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.16130126910000001" green="0.29217539910000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="confirmButtonTitle" value="CONFIRM"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelSuccessText" value="SENDED"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="confirmButtonTitle" value="LAUNCH"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelSuccessText" value="LAUNCHED"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="labelSuccessTextColor">
                                         <color key="value" red="0.52108031511306763" green="0.96340698003768921" blue="0.52631384134292603" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
@@ -66,11 +67,9 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="labelErrorTextColor">
                                         <color key="value" red="1" green="0.0" blue="0.1999483218" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="labelErrorBgColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelErrorText" value="ERROR"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelErrorText" value="IGNITION ERROR"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="buttonSlidesHorizontally" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="bgImageName" value="red-button-bg"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>

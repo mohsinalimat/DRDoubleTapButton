@@ -92,6 +92,13 @@ public class DRDoubleTapButton: UIView {
         }
     }
     
+    @IBInspectable var bgImageName: String = "" {
+        didSet {
+            let bgImage = UIImage(named: bgImageName)
+            primaryButton.setBackgroundImage(bgImage, forState: .Normal)
+        }
+    }
+    
 /// MARK: Confirm Button properties
     ///
     /// Text for the confirm button. Be sure that it fits the button. Default to "CONFIRM"
