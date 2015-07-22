@@ -13,8 +13,8 @@
 		F5606A491B595B6500316C36 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5606A481B595B6500316C36 /* Images.xcassets */; };
 		F5606A4C1B595B6500316C36 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5606A4A1B595B6500316C36 /* LaunchScreen.xib */; };
 		F5606A581B595B6500316C36 /* DRDoubleTapButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5606A571B595B6500316C36 /* DRDoubleTapButtonTests.swift */; };
-		F5606A621B595C1800316C36 /* DRDoubleTapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5606A611B595C1800316C36 /* DRDoubleTapButton.swift */; };
-		F5606A631B595C1800316C36 /* DRDoubleTapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5606A611B595C1800316C36 /* DRDoubleTapButton.swift */; };
+		F5606A621B595C1800316C36 /* DoubleTapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5606A611B595C1800316C36 /* DoubleTapButton.swift */; };
+		F5606A631B595C1800316C36 /* DoubleTapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5606A611B595C1800316C36 /* DoubleTapButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,7 @@
 		F5606A511B595B6500316C36 /* DRDoubleTapButtonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DRDoubleTapButtonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5606A561B595B6500316C36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5606A571B595B6500316C36 /* DRDoubleTapButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DRDoubleTapButtonTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		F5606A611B595C1800316C36 /* DRDoubleTapButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DRDoubleTapButton.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		F5606A611B595C1800316C36 /* DoubleTapButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = DoubleTapButton.swift; path = DoubleTapButton/DoubleTapButton.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				F5606A431B595B6500316C36 /* ViewController.swift */,
-				F5606A611B595C1800316C36 /* DRDoubleTapButton.swift */,
+				F5C788311B6046D400AEBEBB /* DoubleTapButton */,
 				F5606A451B595B6500316C36 /* Main.storyboard */,
 				F5606A3F1B595B6500316C36 /* Supporting Files */,
 			);
@@ -114,6 +114,14 @@
 				F5606A561B595B6500316C36 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5C788311B6046D400AEBEBB /* DoubleTapButton */ = {
+			isa = PBXGroup;
+			children = (
+				F5606A611B595C1800316C36 /* DoubleTapButton.swift */,
+			);
+			name = DoubleTapButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,7 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5606A621B595C1800316C36 /* DRDoubleTapButton.swift in Sources */,
+				F5606A621B595C1800316C36 /* DoubleTapButton.swift in Sources */,
 				F5606A441B595B6500316C36 /* ViewController.swift in Sources */,
 				F5606A421B595B6500316C36 /* AppDelegate.swift in Sources */,
 			);
@@ -226,7 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5606A631B595C1800316C36 /* DRDoubleTapButton.swift in Sources */,
+				F5606A631B595C1800316C36 /* DoubleTapButton.swift in Sources */,
 				F5606A581B595B6500316C36 /* DRDoubleTapButtonTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
