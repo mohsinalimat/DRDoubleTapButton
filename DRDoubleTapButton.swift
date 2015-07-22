@@ -280,45 +280,52 @@ public class DRDoubleTapButton: UIView {
         
         switch gesture.state {
         case .Changed:
-            
-            let translation = gesture.translationInView(primaryButton)
-            
+           
             if slidesHorizontally {
-                slideElementHorizontally(primaryButton, translation: translation)
+                slideElementHorizontally(primaryButton, panGesture: gesture)
             }
             else {
-                slideElementVertically(primaryButton, translation: translation)
+                slideElementVertically(primaryButton, panGesture: gesture)
             }
-            gesture.setTranslation(CGPointZero, inView: primaryButton)
             
         case .Ended:
-            if isOutOfFrame(primaryButton) {
+            
+            if isHalfOutOfFrame(primaryButton) {
                 slideElementOutOfFrame(primaryButton)
             }
             else {
                 slideElementToOriginalPosition(primaryButton)
             }
+            
         default: break
         }
     }
     
-    func slideElementHorizontally(element: UIControl, translation: CGPoint) {
+    func slideElementHorizontally(element: UIControl, panGesture: UIPanGestureRecognizer) {
+        let translation = panGesture.translationInView(primaryButton)
         
         let minXTranslation = originalCenter.x - boundsWidth
         let maxXTranslation = originalCenter.x + boundsWidth
+        
         element.center.x = max(minXTranslation,
             min(maxXTranslation, element.center.x + translation.x))
+        
+        panGesture.setTranslation(CGPointZero, inView: primaryButton)
     }
     
-    func slideElementVertically(element: UIControl, translation: CGPoint) {
+    func slideElementVertically(element: UIControl, panGesture: UIPanGestureRecognizer) {
+        let translation = panGesture.translationInView(primaryButton)
         
         let minXTranslation = originalCenter.y - boundsWidth
         let maxXTranslation = originalCenter.y + boundsWidth
+        
         element.center.y = max(minXTranslation,
             min(maxXTranslation, element.center.y + translation.y))
+
+        panGesture.setTranslation(CGPointZero, inView: primaryButton)
     }
     
-    func isOutOfFrame(element: UIControl) -> Bool {
+    func isHalfOutOfFrame(element: UIControl) -> Bool {
         return element.center.x <= 0 || element.center.y <= 0
     }
     
