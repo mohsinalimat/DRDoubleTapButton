@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  DRDoubleTapButton
+//  DoubleTapButton
 //
 //  Created by Diego Rueda on 17/07/15.
 //  Copyright (c) 2015 Diego Rueda. All rights reserved.
@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var deleteButton: DRDoubleTapButton!
-    @IBOutlet weak var redButton: DRDoubleTapButton!
-    @IBOutlet weak var makeButton: DRDoubleTapButton!
+    @IBOutlet weak var deleteButton: DoubleTapButton!
+    @IBOutlet weak var redButton: DoubleTapButton!
+    @IBOutlet weak var makeButton: DoubleTapButton!
     
     func redButtonPushed() -> Bool {
         /// Do something and then return boolean

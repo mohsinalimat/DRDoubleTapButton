@@ -1,6 +1,6 @@
 //
-//  DRDoubleTapButton.swift
-//  DRDoubleTapButton
+//  DoubleTapButton.swift
+//  DoubleTapButton
 //
 //  Created by Diego Rueda on 17/07/15.
 //  Copyright (c) 2015 Diego Rueda. All rights reserved.
@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-public class DRDoubleTapButton: UIView {
+public class DoubleTapButton: UIView {
     
 /// MARK: Elements
     
