@@ -260,7 +260,7 @@ public class DRDoubleTapButton: UIView {
         
         /// Setting up actions for buttons
         if reactsToTap {
-            primaryButton.addTarget(self, action: "slideButtonOutOfFrame:", forControlEvents: .TouchDown)
+            primaryButton.addTarget(self, action: "slideElementOutOfFrame:", forControlEvents: .TouchDown)
         }
         else {
             /// Adding pan gesture to primary button
@@ -280,31 +280,46 @@ public class DRDoubleTapButton: UIView {
         
         switch gesture.state {
         case .Changed:
-            var translation = gesture.translationInView(primaryButton)
-
+            
+            let translation = gesture.translationInView(primaryButton)
+            
             if slidesHorizontally {
-                let minXTranslation = originalCenter.x - boundsWidth
-                let maxXTranslation = originalCenter.x + boundsWidth
-                primaryButton.center.x = max(minXTranslation,
-                                            min(maxXTranslation, primaryButton.center.x + translation.x))
+                slideElementHorizontally(primaryButton, translation: translation)
             }
             else {
-                let minYTranslation = originalCenter.y - boundsHeight
-                let maxYTranslation = originalCenter.y + boundsHeight
-                primaryButton.center.y = max(minYTranslation,
-                                            min(maxYTranslation, primaryButton.center.y + translation.y))
+                slideElementVertically(primaryButton, translation: translation)
             }
             gesture.setTranslation(CGPointZero, inView: primaryButton)
             
         case .Ended:
-            if primaryButton.center.x <= 0 || primaryButton.center.y <= 0 {
-                slideButtonOutOfFrame(primaryButton)
+            if isOutOfFrame(primaryButton) {
+                slideElementOutOfFrame(primaryButton)
             }
             else {
-                slideButtonToOriginalPosition(primaryButton)
+                slideElementToOriginalPosition(primaryButton)
             }
         default: break
         }
+    }
+    
+    func slideElementHorizontally(element: UIControl, translation: CGPoint) {
+        
+        let minXTranslation = originalCenter.x - boundsWidth
+        let maxXTranslation = originalCenter.x + boundsWidth
+        element.center.x = max(minXTranslation,
+            min(maxXTranslation, element.center.x + translation.x))
+    }
+    
+    func slideElementVertically(element: UIControl, translation: CGPoint) {
+        
+        let minXTranslation = originalCenter.y - boundsWidth
+        let maxXTranslation = originalCenter.y + boundsWidth
+        element.center.y = max(minXTranslation,
+            min(maxXTranslation, element.center.y + translation.y))
+    }
+    
+    func isOutOfFrame(element: UIControl) -> Bool {
+        return element.center.x <= 0 || element.center.y <= 0
     }
     
     /** Tap in the confirm button
@@ -317,41 +332,41 @@ public class DRDoubleTapButton: UIView {
             label.textColor = successTxtColor
             label.backgroundColor = successBgColor
             
-            slideButtonOutOfFrame(confirmButton)
+            slideElementOutOfFrame(confirmButton)
         }
         else {
             label.text = errorText
             label.textColor = errorTxtColor
             label.backgroundColor = errorBgColor
             
-            slideButtonOutOfFrame(confirmButton)
+            slideElementOutOfFrame(confirmButton)
             
             /// Reset the button if returns error
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
             dispatch_after(delayTime, dispatch_get_main_queue()) {
-                self.slideButtonToOriginalPosition(self.primaryButton)
-                self.slideButtonToOriginalPosition(self.confirmButton)
+                self.slideElementToOriginalPosition(self.primaryButton)
+                self.slideElementToOriginalPosition(self.confirmButton)
             }
         }
     }
     
     /// Slides button out of the frame if the user slide it beyond the center of the component or if he taps in the primary button when primaryButtonReactsToTap is true
-    func slideButtonOutOfFrame(button: UIButton) {
+    func slideElementOutOfFrame(element: UIControl) {
         UIView.animateWithDuration(animationDuration, animations: {
             if self.slidesHorizontally {
-                button.center.x = self.horizontalSlide
+                element.center.x = self.horizontalSlide
             }
             else {
-                button.center.y = self.verticalSlide
+                element.center.y = self.verticalSlide
             }
         })
     }
     
     /// Returns button to its original position when user doesn't slide it beyond the center of the component
-    func slideButtonToOriginalPosition(button: UIButton) {
-        if button.center != originalCenter {
+    func slideElementToOriginalPosition(element: UIControl) {
+        if element.center != originalCenter {
             UIView.animateWithDuration(animationDuration) {
-                button.center = self.originalCenter
+                element.center = self.originalCenter
             }
         }
     }
