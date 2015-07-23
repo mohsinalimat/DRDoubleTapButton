@@ -195,7 +195,11 @@ public class DoubleTapButton: UIView {
 
     /** Text for label when confirm button returns a success message
         Defatul to "SUCCESS" */
-    @IBInspectable var successText: String = "SUCCESS"
+    @IBInspectable var successText: String = "SUCCESS" {
+        didSet {
+            label.text = successText
+        }
+    }
     
     /** Text color for label when confirm button returns a success message
         Default to green */
@@ -207,7 +211,11 @@ public class DoubleTapButton: UIView {
     
     /** Text for label when confirm button returns an error message
         Default to "ERROR" */
-    @IBInspectable var errorText: String = "ERROR"
+    @IBInspectable var errorText: String = "ERROR" {
+        didSet {
+            label.text = errorText
+        }
+    }
     
     /** Text color for label when confirm button returns an error message
         Default to red */
