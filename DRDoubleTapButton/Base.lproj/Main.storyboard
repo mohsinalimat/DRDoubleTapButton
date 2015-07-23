@@ -16,8 +16,95 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hYH-pE-DQt" customClass="DoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
-                                <rect key="frame" x="16" y="28" width="200" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSO-t1-yau" customClass="DoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
+                                <rect key="frame" x="16" y="330" width="300" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="slidesHorizontally" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryTxtColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryBgColor">
+                                        <color key="value" red="0.63895374536514282" green="0.27958551049232483" blue="0.73563534021377563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmTxtColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmBgColor">
+                                        <color key="value" red="0.79529029130935669" green="0.35601261258125305" blue="0.91346615552902222" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="successTxtColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="successBgColor">
+                                        <color key="value" red="0.36348280310630798" green="0.75091588497161865" blue="0.36596444249153137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="successText" value="AWESOME!"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="errorTxtColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="errorBgColor">
+                                        <color key="value" red="0.68325698375701904" green="0.16707631945610046" blue="0.13582015037536621" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="errorText" value="OOPS! TRY AGAIN!"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="confirmText" value="AND DO IT NOW!"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="reactsToTap" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.57792574167251587" green="0.28009018301963806" blue="0.76044034957885742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryText" value="DO SOMETHING AMAZING"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrf-ta-Ix7" customClass="DoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
+                                <rect key="frame" x="81" y="113" width="171" height="171"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryTxtColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryBgColor">
+                                        <color key="value" red="1" green="0.0" blue="0.1999483218" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryText" value="WARNING!"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmTxtColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmBgColor">
+                                        <color key="value" red="0.93333619832992554" green="0.42931070923805237" blue="0.47143244743347168" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="confirmText" value="LAUNCH"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="successText" value="LAUNCHED!"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="successTxtColor">
+                                        <color key="value" red="0.52108031511306763" green="0.96340698003768921" blue="0.52631384134292603" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="successBgColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="errorTxtColor">
+                                        <color key="value" red="1" green="0.0" blue="0.1999483218" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="errorText" value="IGNITION ERROR"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="slidesHorizontally" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="bgImageName" value="red-button-bg"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.68325698375701904" green="0.16707631945610046" blue="0.13582015037536621" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYH-pE-DQt" customClass="DoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
+                                <rect key="frame" x="66" y="28" width="200" height="44"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="primaryText" value="DELETE"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -41,80 +128,6 @@
                                         <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="successText" value="DELETED!"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VSO-t1-yau" customClass="DoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
-                                <rect key="frame" x="16" y="114" width="300" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="slidesHorizontally" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryTxtColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryBgColor">
-                                        <color key="value" red="0.63895374536514282" green="0.27958551049232483" blue="0.73563534021377563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmTxtColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmBgColor">
-                                        <color key="value" red="0.34752580523490906" green="0.64352220296859741" blue="0.16862347722053528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="successTxtColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="successBgColor">
-                                        <color key="value" red="0.32495242357254028" green="0.65731793642044067" blue="0.58877795934677124" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="successText" value="GREAT!"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="errorTxtColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="errorBgColor">
-                                        <color key="value" red="0.68325698375701904" green="0.16707631945610046" blue="0.13582015037536621" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="errorText" value="OOPS! TRY AGAIN!"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="confirmText" value="CONFIRM"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="reactsToTap" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jrf-ta-Ix7" customClass="DoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
-                                <rect key="frame" x="16" y="214" width="171" height="171"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryTxtColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryBgColor">
-                                        <color key="value" red="1" green="0.0" blue="0.1999483218" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="primaryText" value="WARNING!"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmTxtColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="confirmBgColor">
-                                        <color key="value" red="0.16130126910000001" green="0.29217539910000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="confirmText" value="LAUNCH"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="successText" value="LAUNCHED"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="successTxtColor">
-                                        <color key="value" red="0.52108031511306763" green="0.96340698003768921" blue="0.52631384134292603" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="successBgColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="errorTxtColor">
-                                        <color key="value" red="1" green="0.0" blue="0.1999483218" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="errorText" value="IGNITION ERROR"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="slidesHorizontally" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="bgImageName" value="red-button-bg"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
