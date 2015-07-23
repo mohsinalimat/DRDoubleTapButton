@@ -10,13 +10,13 @@ It has a feedback label after the confirm button is called.
 
 ## Screenshots
 
-When the action is success, the interaction ends after the confirm button is pushed
+When the action is success, the interaction ends after the confirm button is pushed <br />
 ![DoubleTapButton-1.gif](http://diegorueda.es/code/assets/images/iOSComponents/DoubleTapButton-1.gif)
 
-When the action is error, the button is reseted
+When the action is error, the button is reseted <br />
 ![DoubleTapButton-2.gif](http://diegorueda.es/code/assets/images/iOSComponents/DoubleTapButton-2.gif)
 
-Buttons can be tapped or swipped
+Buttons can be tapped or swipped <br />
 ![DoubleTapButton-3.gif](http://diegorueda.es/code/assets/images/iOSComponents/DoubleTapButton-3.gif)
 
 ## Author
