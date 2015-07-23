@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSO-t1-yau" customClass="DoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
-                                <rect key="frame" x="16" y="330" width="300" height="60"/>
+                                <rect key="frame" x="16" y="355" width="300" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="slidesHorizontally" value="NO"/>
@@ -62,7 +62,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrf-ta-Ix7" customClass="DoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
-                                <rect key="frame" x="81" y="113" width="171" height="171"/>
+                                <rect key="frame" x="81" y="138" width="171" height="171"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="primaryTxtColor">
@@ -104,7 +104,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYH-pE-DQt" customClass="DoubleTapButton" customModule="DRDoubleTapButton" customModuleProvider="target">
-                                <rect key="frame" x="66" y="28" width="200" height="44"/>
+                                <rect key="frame" x="66" y="53" width="200" height="44"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="primaryText" value="DELETE"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">

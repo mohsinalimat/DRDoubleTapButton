@@ -12,20 +12,8 @@
 		F5606A471B595B6500316C36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5606A451B595B6500316C36 /* Main.storyboard */; };
 		F5606A491B595B6500316C36 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5606A481B595B6500316C36 /* Images.xcassets */; };
 		F5606A4C1B595B6500316C36 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5606A4A1B595B6500316C36 /* LaunchScreen.xib */; };
-		F5606A581B595B6500316C36 /* DRDoubleTapButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5606A571B595B6500316C36 /* DRDoubleTapButtonTests.swift */; };
 		F5606A621B595C1800316C36 /* DoubleTapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5606A611B595C1800316C36 /* DoubleTapButton.swift */; };
-		F5606A631B595C1800316C36 /* DoubleTapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5606A611B595C1800316C36 /* DoubleTapButton.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		F5606A521B595B6500316C36 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F5606A341B595B6500316C36 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F5606A3B1B595B6500316C36;
-			remoteInfo = DRDoubleTapButton;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		F5606A3C1B595B6500316C36 /* DRDoubleTapButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRDoubleTapButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,7 +23,6 @@
 		F5606A461B595B6500316C36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F5606A481B595B6500316C36 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F5606A4B1B595B6500316C36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		F5606A511B595B6500316C36 /* DRDoubleTapButtonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DRDoubleTapButtonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5606A561B595B6500316C36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5606A571B595B6500316C36 /* DRDoubleTapButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DRDoubleTapButtonTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F5606A611B595C1800316C36 /* DoubleTapButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = DoubleTapButton.swift; path = DoubleTapButton/DoubleTapButton.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -43,13 +30,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		F5606A391B595B6500316C36 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F5606A4E1B595B6500316C36 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -72,7 +52,6 @@
 			isa = PBXGroup;
 			children = (
 				F5606A3C1B595B6500316C36 /* DRDoubleTapButton.app */,
-				F5606A511B595B6500316C36 /* DRDoubleTapButtonTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,24 +123,6 @@
 			productReference = F5606A3C1B595B6500316C36 /* DRDoubleTapButton.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F5606A501B595B6500316C36 /* DRDoubleTapButtonTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F5606A5E1B595B6500316C36 /* Build configuration list for PBXNativeTarget "DRDoubleTapButtonTests" */;
-			buildPhases = (
-				F5606A4D1B595B6500316C36 /* Sources */,
-				F5606A4E1B595B6500316C36 /* Frameworks */,
-				F5606A4F1B595B6500316C36 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F5606A531B595B6500316C36 /* PBXTargetDependency */,
-			);
-			name = DRDoubleTapButtonTests;
-			productName = DRDoubleTapButtonTests;
-			productReference = F5606A511B595B6500316C36 /* DRDoubleTapButtonTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -173,10 +134,6 @@
 				TargetAttributes = {
 					F5606A3B1B595B6500316C36 = {
 						CreatedOnToolsVersion = 6.2;
-					};
-					F5606A501B595B6500316C36 = {
-						CreatedOnToolsVersion = 6.2;
-						TestTargetID = F5606A3B1B595B6500316C36;
 					};
 				};
 			};
@@ -194,7 +151,6 @@
 			projectRoot = "";
 			targets = (
 				F5606A3B1B595B6500316C36 /* DRDoubleTapButton */,
-				F5606A501B595B6500316C36 /* DRDoubleTapButtonTests */,
 			);
 		};
 /* End PBXProject section */
@@ -207,13 +163,6 @@
 				F5606A471B595B6500316C36 /* Main.storyboard in Resources */,
 				F5606A4C1B595B6500316C36 /* LaunchScreen.xib in Resources */,
 				F5606A491B595B6500316C36 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F5606A4F1B595B6500316C36 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,24 +179,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F5606A4D1B595B6500316C36 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F5606A631B595C1800316C36 /* DoubleTapButton.swift in Sources */,
-				F5606A581B595B6500316C36 /* DRDoubleTapButtonTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F5606A531B595B6500316C36 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F5606A3B1B595B6500316C36 /* DRDoubleTapButton */;
-			targetProxy = F5606A521B595B6500316C36 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F5606A451B595B6500316C36 /* Main.storyboard */ = {
@@ -368,38 +300,6 @@
 			};
 			name = Release;
 		};
-		F5606A5F1B595B6500316C36 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = DRDoubleTapButtonTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DRDoubleTapButton.app/DRDoubleTapButton";
-			};
-			name = Debug;
-		};
-		F5606A601B595B6500316C36 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = DRDoubleTapButtonTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DRDoubleTapButton.app/DRDoubleTapButton";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -417,15 +317,6 @@
 			buildConfigurations = (
 				F5606A5C1B595B6500316C36 /* Debug */,
 				F5606A5D1B595B6500316C36 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F5606A5E1B595B6500316C36 /* Build configuration list for PBXNativeTarget "DRDoubleTapButtonTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F5606A5F1B595B6500316C36 /* Debug */,
-				F5606A601B595B6500316C36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
