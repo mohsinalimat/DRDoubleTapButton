@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "DoubleTapButton"
-  s.version          = "0.1.1"
+  s.version          = "0.1.3"
   s.summary          = "A button wich needs confirmation with two taps and gives user a feedback message"
   s.homepage         = "https://github.com/dgrueda/DRDoubleTapButton"
   s.screenshots      = ["http://diegorueda.es/code/assets/images/iOSComponents/DoubleTapButton-1.gif",
