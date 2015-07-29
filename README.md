@@ -4,9 +4,9 @@
 [![License](https://img.shields.io/cocoapods/l/DoubleTapButton.svg?style=flat)](http://cocoapods.org/pods/DoubleTapButton)
 [![Platform](https://img.shields.io/cocoapods/p/DoubleTapButton.svg?style=flat)](http://cocoapods.org/pods/DoubleTapButton)
 
-A button in two steps.
+A button with a confirmation system.
 
-Custom component for iOS that requires two taps: the first one to activate it and the second one to confirm the action.
+It requires two taps: the first one to activate it and the second one to confirm the action.
 
 It has a feedback label after the confirm button is called. 
 
