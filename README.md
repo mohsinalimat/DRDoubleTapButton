@@ -1,4 +1,4 @@
-# DRDoubleTapButton
+# DoubleTapButton
 
 [![Version](https://img.shields.io/cocoapods/v/DoubleTapButton.svg?style=flat)](http://cocoapods.org/pods/DoubleTapButton)
 [![License](https://img.shields.io/cocoapods/l/DoubleTapButton.svg?style=flat)](http://cocoapods.org/pods/DoubleTapButton)
